@@ -7,6 +7,9 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define MOUSE 6
+#define ENCODER_SCROLL_SPEED 1200
+#define ENCODER_SCROLL_DOWN MOVE_Y(ENCODER_SCROLL_SPEED)
+#define ENCODER_SCROLL_UP MOVE_Y(-ENCODER_SCROLL_SPEED)
 
 &mt {
     flavor = "balanced";
@@ -62,7 +65,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             tap-ms = <5>;
-            bindings = <&msc MOVE_DOWN>, <&msc MOVE_UP>;
+            bindings = <&msc ENCODER_SCROLL_DOWN>, <&msc ENCODER_SCROLL_UP>;
         };
 
         vol_up_down: vol_up_down {
